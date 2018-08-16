@@ -74,7 +74,6 @@ func main() {
 		index++
 	}
 
-	for {
 		notes := `
 			*******************************
 			文件备份处理      
@@ -111,15 +110,19 @@ func main() {
 			}
 		default:
 			fmt.Println("Default is running")
+			
 			//Write the ginfo
 			f, err := os.Create(infFie)
 			if err != nil {
 				log.Fatal("Open file for write failure!Quit...")
 			}
 			defer f.Close()
+			//Todo
+				f.WriteString("Last copy time")
+			f.WriteString("Category Company Disk Home Month-Date Month-Date")
 			for _, v := range wd {
 				f.WriteString(v.write())
-			}
+		
 		}
 
 	}
